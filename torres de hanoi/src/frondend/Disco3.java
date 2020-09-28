@@ -5,13 +5,13 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-public class Disco3 extends JPanel {
+public class Disco3 extends Grafidisco {
 
 	/**
 	 * Create the panel.
 	 */
 	public Disco3() {
-
+		this.setTamaño(7);
 	}
 	@Override
 	public void paintComponent(Graphics h) {
@@ -23,5 +23,8 @@ public class Disco3 extends JPanel {
 		h.fillRoundRect(70, 0, this.getWidth()-140, this.getHeight(), 20, 30);
 		
 	}
+	
+
+
 
 }

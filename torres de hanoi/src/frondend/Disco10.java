@@ -5,9 +5,10 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-public class Disco10 extends JPanel {
+public class Disco10 extends Grafidisco {
 
 	public Disco10() {
+		this.setTamaño(0);
 
 	}
 	
@@ -22,5 +23,6 @@ public class Disco10 extends JPanel {
 		
 		
 	}
+
 
 }

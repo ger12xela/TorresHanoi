@@ -5,10 +5,10 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-public class Disco8 extends JPanel {
+public class Disco8 extends Grafidisco {
 
 	public Disco8() {
-
+		this.setTamaño(2);
 	}
 	
 	@Override

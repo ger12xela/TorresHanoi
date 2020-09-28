@@ -5,14 +5,18 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-public class Disco1 extends JPanel {
+public class Disco1 extends Grafidisco {
 
 	/**
 	 * Create the panel.
 	 */
 	public Disco1() {
+		this.setTamaño(9);
 
 	}
+	
+	// el disco 1 es el mas pequeño
+	
 	@Override
 	public void paintComponent(Graphics h) {
 		super.paintComponent(h); // llamamos al metodo paint de la super clase
@@ -23,5 +27,8 @@ public class Disco1 extends JPanel {
 		h.fillRoundRect(90, 0, this.getWidth()-180, this.getHeight(), 20, 30);
 		
 	}
+
+	
+
 
 }
