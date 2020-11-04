@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -22,6 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 public class Ventana_principal extends JFrame {
 	
@@ -44,6 +47,10 @@ public class Ventana_principal extends JFrame {
 	JPanel torre3 = new JPanel();
 	JPanel panelDerecho = new JPanel();
 	JPanel panelabajo = new JPanel();
+	
+	private JPanel tituloTorreA = new JPanel();
+	private JPanel tituloTorreB = new JPanel();
+	private JPanel tituloTorreC = new JPanel();
 		
 	
 	//arreglos JPanel
@@ -57,10 +64,8 @@ public class Ventana_principal extends JFrame {
 			new JPanel(),
 			new JPanel(),
 			new JPanel(),
-			new JPanel(),
-			new JPanel()};
+			new JPanel(),};
 	JPanel[] arregloTorre2 = {
-			new JPanel(),
 			new JPanel(),
 			new JPanel(),
 			new JPanel(),
@@ -72,7 +77,6 @@ public class Ventana_principal extends JFrame {
 			new JPanel(),
 			new JPanel(),};
 	JPanel[] arregloTorre3 = {
-			new JPanel(),
 			new JPanel(),
 			new JPanel(),
 			new JPanel(),
@@ -102,12 +106,18 @@ public class Ventana_principal extends JFrame {
 	JComboBox comboBoxNumeroDiscos = new JComboBox();
 
 	// varios 
+	
+	private JLabel LabeltorreA = new JLabel("Torre A");
+	private JLabel LabeltorreB = new JLabel("Torre B");
+	private JLabel LabeltorreC = new JLabel("Torre C");
 	private final JLabel lblNewLabelNumeroMinimo = new JLabel("Numero minimo de movimientos");
 	private final JLabel lblNewLabelNumeroMovimientos = new JLabel("Numero de movimientos");
 	private JTextField textFieldNumeroMInimo;
 	private JTextField textFieldNumeroMovimeientos;
+	private final JButton btnNewButton_1 = new JButton("Acerca de ");
 
 	public Ventana_principal() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 919, 623);
 		contentPane = new JPanel();
@@ -119,15 +129,17 @@ public class Ventana_principal extends JFrame {
 		
 		panelIzquierdo.setPreferredSize(new Dimension(100,60));
 		contentPane.add(panelIzquierdo, BorderLayout.WEST);
+		panelCentro.setBorder(new LineBorder(Color.BLACK, 2));
 		
 		contentPane.add(panelCentro, BorderLayout.CENTER);
 		panelCentro.setLayout(new GridLayout(0, 3, 0, 0));
+		torre1.setBorder(new LineBorder(Color.BLACK));
 		
 		panelCentro.add(torre1);
 		torre1.setLayout(new GridLayout(11, 1, 0, 0));
 		
 		
-		torre1.add(arregloTorre1[10]);
+		torre1.add(tituloTorreA);
 		
 		torre1.add(arregloTorre1[9]);
 		arregloTorre1[9].setLayout(new BorderLayout(0, 0));
@@ -158,11 +170,12 @@ public class Ventana_principal extends JFrame {
 		
 		torre1.add(arregloTorre1[0]);
 		arregloTorre1[0].setLayout(new BorderLayout(0, 0));
+		torre2.setBorder(new LineBorder(Color.BLACK));
 		
 		panelCentro.add(torre2);
 		torre2.setLayout(new GridLayout(11, 1, 0, 0));
 		
-		torre2.add(arregloTorre2[10]);
+		torre2.add(tituloTorreB);
 		
 		torre2.add(arregloTorre2[9]);
 		
@@ -183,11 +196,12 @@ public class Ventana_principal extends JFrame {
 		torre2.add(arregloTorre2[1]);
 		
 		torre2.add(arregloTorre2[0]);
+		torre3.setBorder(new LineBorder(Color.BLACK));
 		
 		panelCentro.add(torre3);
 		torre3.setLayout(new GridLayout(11, 1, 0, 0));
 		
-		torre3.add(arregloTorre3[10]);
+		torre3.add(tituloTorreC);
 		
 		torre3.add(arregloTorre3[9]);
 		
@@ -209,13 +223,37 @@ public class Ventana_principal extends JFrame {
 		
 		torre3.add(arregloTorre3[0]);
 		
+		// cambiando el titulo de las torres
+		
+		for (int i = 0; i < arregloTorre1.length; i++) {
+			arregloTorre1[i].setBackground(Color.WHITE);
+		}	
+		
+		tituloTorreA.setBackground(new Color(176, 224, 230));
+		tituloTorreA.setLayout(new FlowLayout());
+		tituloTorreA.add(LabeltorreA);
+		LabeltorreA.setFont(new Font("Agency FB", Font.BOLD, 22));
+
 		for (int i = 0; i < arregloTorre2.length; i++) {
 			arregloTorre2[i].setLayout(new BorderLayout(0, 0));
+			arregloTorre2[i].setBackground(Color.WHITE);
 		}
+		tituloTorreB.setBackground(new Color(176, 224, 230));
+		tituloTorreB.setLayout(new FlowLayout());
+		tituloTorreB.add(LabeltorreB);
+		LabeltorreB.setFont(new Font("Agency FB", Font.BOLD, 22));
+
 		
 		for (int i = 0; i < arregloTorre3.length; i++) {
 			arregloTorre3[i].setLayout(new BorderLayout(0, 0));
+			arregloTorre3[i].setBackground(Color.WHITE);
+
 		}
+		tituloTorreC.setBackground(new Color(176, 224, 230));
+		tituloTorreC.setLayout(new FlowLayout());
+		tituloTorreC.add(LabeltorreC);
+		LabeltorreC.setFont(new Font("Agency FB", Font.BOLD, 22));
+
 		
 		panelDerecho.setPreferredSize(new Dimension(100,60));
 		contentPane.add(panelDerecho, BorderLayout.EAST);
@@ -237,7 +275,7 @@ public class Ventana_principal extends JFrame {
 		panelabajo.setLayout(null);
 		panelabajo.add(btnIncio);
 		
-		JButton borrar = new JButton("Limpiar");
+		JButton borrar = new JButton("Reiniciar");
 		borrar.setBounds(319, 138, 89, 23);
 		borrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -252,7 +290,7 @@ public class Ventana_principal extends JFrame {
 		panelabajo.add(lblNewLabel);
 		
 		comboBoxNumeroDiscos.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9"}));
-		comboBoxNumeroDiscos.setBounds(666, 139, 67, 20);
+		comboBoxNumeroDiscos.setBounds(688, 139, 67, 20);
 		panelabajo.add(comboBoxNumeroDiscos);
 		lblNewLabelNumeroMinimo.setBounds(495, 92, 161, 14);
 		
@@ -264,14 +302,14 @@ public class Ventana_principal extends JFrame {
 		textFieldNumeroMInimo = new JTextField();
 		textFieldNumeroMInimo.setBackground(Color.WHITE);
 		textFieldNumeroMInimo.setEditable(false);
-		textFieldNumeroMInimo.setBounds(666, 89, 86, 20);
+		textFieldNumeroMInimo.setBounds(688, 89, 86, 20);
 		panelabajo.add(textFieldNumeroMInimo);
 		textFieldNumeroMInimo.setColumns(10);
 		
 		textFieldNumeroMovimeientos = new JTextField();
 		textFieldNumeroMovimeientos.setBackground(Color.WHITE);
 		textFieldNumeroMovimeientos.setEditable(false);
-		textFieldNumeroMovimeientos.setBounds(666, 114, 86, 20);
+		textFieldNumeroMovimeientos.setBounds(688, 114, 86, 20);
 		panelabajo.add(textFieldNumeroMovimeientos);
 		textFieldNumeroMovimeientos.setColumns(10);
 		
@@ -329,7 +367,43 @@ public class Ventana_principal extends JFrame {
 		ButtonC_B.setBounds(729, 15, 45, 31);
 		panelabajo.add(ButtonC_B);
 		
+		JButton btnNewButton = new JButton("instrucciones");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				istrucciones();
+			}
+		});
+		btnNewButton.setBounds(10, 138, 115, 23);
+		panelabajo.add(btnNewButton);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AcercaDe();
+			}
+		});
+		btnNewButton_1.setBounds(10, 166, 115, 23);
+		
+		panelabajo.add(btnNewButton_1);
+		
 
+		
+	}
+	private void AcercaDe() {
+		JOptionPane.showMessageDialog(null, "Proyecto matematica del computo segundo semestres 2020"
+				+ "\n\n Universidad de san carlor de Guatemala"
+				+ "\n centro universitario de occidente"
+				+ "\n\n creado por: Gerson Joselito Reynoso Batz"
+				+ "\n Carnet: 201831010 "
+				+ ""," Acerca de... ", JOptionPane.DEFAULT_OPTION);
+		
+	}
+	
+	private void istrucciones() {
+		JOptionPane.showMessageDialog(null, "El objetivo del juego es trasladar la pila a otro de los postes siguiendo ciertas reglas,"
+				+ " como que no se puede colocar un disco más grande encima de un disco más pequeño."
+				+ "\n\n puede escojer la cantidad de discos en el apartado numero discos para luego precionar el boton (inicio) "
+				+ "\n\n para trasladar un disco a otra torre puede precionar el boton debajo de la misma, con la letra "
+				+ "correspondiente a la sieguiente torre "," Instucciones ", JOptionPane.WARNING_MESSAGE);
 		
 	}
 	private void moverDeA_B(){
