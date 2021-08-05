@@ -459,11 +459,13 @@ public class Ventana_principal extends JFrame {
 				if(torrepila3.getContadorDico() == objetivo && contadorMovimientos==objetivominimo ) {
 					JOptionPane.showMessageDialog(null, "Estoy Seguro que eres de la san Carlos, \n"
 							+ "lo lograste en el minimo de movimientos \n\n"
-							+ "intentalo ahora con mas discos"," Felicidades ", JOptionPane.WARNING_MESSAGE);
+							+ "prueba cambiar y subir la cantidad de discos"," Felicidades ", JOptionPane.WARNING_MESSAGE);
+					reiniciar();
 				}else if (torrepila3.getContadorDico() == objetivo && contadorMovimientos != objetivominimo) {
 					JOptionPane.showMessageDialog(null, "lo lograste, \n\n"
 							+ "ahora intenta hacerlo en el minimo de movimientos que se te indica"
 						," Felicidades ", JOptionPane.WARNING_MESSAGE);
+					reiniciar();
 				}
 				
 			}
@@ -525,11 +527,13 @@ public class Ventana_principal extends JFrame {
 				if(torrepila3.getContadorDico() == objetivo && contadorMovimientos==objetivominimo ) {
 					JOptionPane.showMessageDialog(null, "Estoy Seguro que eres de la san Carlos, \n"
 							+ "lo lograste en el minimo de movimientos \n\n"
-							+ "intentalo ahora con mas discos"," Felicidades ", JOptionPane.WARNING_MESSAGE);
+							+ "prueba cambiando la cantidad de discos"," Felicidades ", JOptionPane.WARNING_MESSAGE);
+					reiniciar();
 				}else if (torrepila3.getContadorDico() == objetivo && contadorMovimientos != objetivominimo) {
 					JOptionPane.showMessageDialog(null, "lo lograste, \n\n"
 							+ "ahora intenta hacerlo en el minimo de movimientos que se te indica"
 						," Felicidades ", JOptionPane.WARNING_MESSAGE);
+					reiniciar();
 				}
 				
 			}
@@ -604,6 +608,9 @@ public class Ventana_principal extends JFrame {
 	
 	private void PresentarCantidadMovimientos() {
 		contadorMovimientos ++;
+		if (contadorMovimientos > objetivominimo) {
+			JOptionPane.showMessageDialog(null, "has superado la cantidad minima de momimientos puesdes seguir o iniciar de nuevo "," atencion", JOptionPane.WARNING_MESSAGE);
+		}
 		textFieldNumeroMovimeientos.setText(String.valueOf(contadorMovimientos));
 	}
 	
@@ -723,8 +730,6 @@ public class Ventana_principal extends JFrame {
 	
 	
 	public void remover() {
-//		arregloTorre2[0].add(matrizDisco[2]);
-//		arregloTorre1[3].removeAll();
 		MostrarTorreB();
 		contentPane.updateUI();
 	}
